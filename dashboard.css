@@ -163,8 +163,10 @@ body {
     gap: 1rem;
     padding: 0.5rem 2rem;
     margin: 0.5rem 0;
+    user-select: text;
 }
 
 .todo-item h5 {
     font-weight: 500;
+    user-select: text;
 }
