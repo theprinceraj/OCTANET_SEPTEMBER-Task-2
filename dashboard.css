@@ -5,7 +5,12 @@
     font-family: 'Gilroy';
 }
 
-html, body {
+*:hover {
+    cursor: default;
+}
+
+html,
+body {
     width: 100%;
     height: 100%;
 }
@@ -15,12 +20,70 @@ aside {
     width: 20%;
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 0 2rem;
 }
 
-aside h1 {
+#aside-heading {
+    width: 80%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+}
+
+#aside-heading h1 {
     font-weight: 500;
     margin: 1rem;
+}
+
+#aside-heading i {
+    border: 2px solid black;
+    border-radius: 50%;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.7);
+    font-size: 1.5rem;
+    transition: all ease 0.4s;
+}
+
+#aside-heading i:hover {
+    cursor: pointer;
+    transform: rotate(90deg);
+}
+
+#aside-tasks-days {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#aside-tasks-days h5 {
+    color: #999999;
+    font-size: 0.75rem;
+}
+
+#aside-tasks-days ul {
+    list-style: none;
+    font-weight: 500;
+}
+
+#aside-tasks-days ul li {
+    margin: 0.1rem 0;
+    padding: 0.5rem 2rem;
+    border-radius: 1rem;
+    transition: all ease 0.2s;
+}
+
+#aside-tasks-days ul li:hover {
+    cursor: pointer;
+    background-color: #838383;
+    color: white;
+}
+#aside-tasks-days ul li:active {
+    scale: 0.9;
 }
 
 body {

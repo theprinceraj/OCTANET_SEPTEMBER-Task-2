@@ -5,12 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+
+    <!-- Icons CSS -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
     <link rel="stylesheet" href="dashboard.css">
 </head>
 
 <body>
     <aside>
-        <h1>Menu</h1>
+        <div id="aside-heading">
+            <h1>Menu</h1>
+            <i class='bx bx-cog'></i>
+        </div>
+        <div id="aside-tasks-days">
+            <h5>TASKS</h5>
+            <ul>
+                <li>Upcoming</li>
+                <li>Today</li>
+                <li>Tomorrow</li>
+            </ul>
+        </div>
     </aside>
     <script src="dashboard.js"></script>
 </body>
