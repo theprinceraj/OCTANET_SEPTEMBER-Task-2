@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Gilroy';
+    user-select: none;
 }
 
 *:hover {
@@ -53,36 +54,42 @@ aside {
     transform: rotate(90deg);
 }
 
-#aside-tasks-days {
+#aside-heading i:active {
+    scale: 0.9;
+}
+
+.aside-column {
     display: flex;
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
 }
 
-#aside-tasks-days h5 {
+.aside-column h5 {
     color: #999999;
-    font-size: 0.75rem;
+    margin-top: 1rem;
+
 }
 
-#aside-tasks-days ul {
+.aside-column ul {
     list-style: none;
     font-weight: 500;
 }
 
-#aside-tasks-days ul li {
+.aside-column ul li {
     margin: 0.1rem 0;
     padding: 0.5rem 2rem;
     border-radius: 1rem;
     transition: all ease 0.2s;
 }
 
-#aside-tasks-days ul li:hover {
+.aside-column ul li:hover {
     cursor: pointer;
     background-color: #838383;
     color: white;
 }
-#aside-tasks-days ul li:active {
+
+.aside-column ul li:active {
     scale: 0.9;
 }
 
