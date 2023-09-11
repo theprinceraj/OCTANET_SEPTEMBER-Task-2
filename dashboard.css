@@ -166,21 +166,50 @@ body {
     align-items: flex-start;
     justify-content: flex-start;
     flex-direction: column;
+    position: relative;
+    width: 100%;
 }
 
-.today-style-todo-item {
+.no-date-style-todo-item {
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 1rem;
     padding: 0.5rem 2rem;
     padding-left: 0;
     margin: 0.5rem 0;
     user-select: text;
-    border-bottom: 1px solid gray;
 }
 
-.today-style-todo-item h5 {
+.no-date-style-todo-item div {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 90%;
     font-weight: 500;
     user-select: text;
+}
+
+.no-date-style-todo-item div p {
+    transform: translateY(6px);
+    font-weight: 500;
+}
+
+.no-date-style-todo-item div h5 {
+    color: gray;
+    transform: translateY(15px);
+}
+
+.no-date-style-todo-item>i {
+    transition: all ease 0.3s;
+    font-size: 1.5rem;
+}
+
+.no-date-style-todo-item>i:hover {
+    color: red;
+}
+
+.no-date-style-todo-item>i:active {
+    scale: 0.8;
 }
