@@ -99,7 +99,7 @@ body {
 #main {
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
     padding: 2rem;
 }
@@ -154,6 +154,10 @@ body {
 
 #todo-list-display {
     list-style: none;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
 }
 
 .todo-item {
