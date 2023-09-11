@@ -43,9 +43,6 @@ aside {
 }
 
 #aside-heading i {
-    border: 2px solid black;
-    border-radius: 50%;
-    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.7);
     font-size: 1.5rem;
     transition: all ease 0.4s;
 }
@@ -140,11 +137,11 @@ body {
 
 #add-to-tasks-form i {
     font-size: 1.4rem;
-    transition: all ease 0.5s;
+    transition: all ease 0.3s;
 }
 
 #add-to-tasks-form i:active {
-    scale: 0.5;
+    scale: 0.7;
 }
 
 #NewTaskInputField {
@@ -153,4 +150,21 @@ body {
     border: none;
     outline: none;
     padding: 0 1rem;
+}
+
+#todo-list-display {
+    list-style: none;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0.5rem 2rem;
+    margin: 0.5rem 0;
+}
+
+.todo-item h5 {
+    font-weight: 500;
 }
