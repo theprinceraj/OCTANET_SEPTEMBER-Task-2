@@ -43,27 +43,46 @@
         <!-- Section Heading Begins -->
         <div id="main-section-heading">
             <h1>Today</h1>
-            <div id="tasks-count"><h1>12</h1></div>
+            <div id="tasks-count">
+                <h1>12</h1>
+            </div>
         </div>
         <!-- Section Heading Ends -->
 
 
-        <!-- Add To Tasks Form Begins -->
-        <form id="add-to-tasks-form">
-            <i class='bx bx-alarm-add'></i>
-            <input type="text" name="New Tasks" id="NewTaskInputField" placeholder="Add New Task">
-        </form>
-        <!-- Add To Tasks Form Ends -->
+        <!-- Form Container Div Begins -->
+        <div id="form-container-div">
+            <!-- Add To Tasks Form Begins -->
+            <form id="add-to-tasks-form">
+                <i class='bx bx-alarm-add'></i>
+                <input type="text" name="New Task" id="NewTaskInputField" placeholder="Add New Task" required>
+                <input type="date" name="Task Date" id="TaskDate" required>
+            </form>
+            <!-- Add To Tasks Form Ends -->
+        </div>
+        <!-- Form Container Div Ends -->
 
         <!-- TODO list Begins -->
         <ul id="todo-list-display">
-            <li class="todo-item">
+            <li class="today-style-todo-item">
+                <input type="checkbox" name="test-todo-checkbox" id="test-todo-checkbox">
+                <h5>This a test ToDo item.</h5>
+            </li>
+            <li class="today-style-todo-item">
+                <input type="checkbox" name="test-todo-checkbox" id="test-todo-checkbox">
+                <h5>This a test ToDo item.</h5>
+            </li>
+            <li class="today-style-todo-item">
+                <input type="checkbox" name="test-todo-checkbox" id="test-todo-checkbox">
+                <h5>This a test ToDo item.</h5>
+            </li>
+            <li class="today-style-todo-item">
                 <input type="checkbox" name="test-todo-checkbox" id="test-todo-checkbox">
                 <h5>This a test ToDo item.</h5>
             </li>
         </ul>
         <!-- TODO list Ends -->
-        
+
     </section>
     <!-- Main Section Ends -->
 

@@ -124,6 +124,13 @@ body {
     box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
+#form-container-div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #add-to-tasks-form {
     border: 1px solid rgba(0, 0, 0, 0.9);
     border-radius: 1rem;
@@ -150,6 +157,7 @@ body {
     border: none;
     outline: none;
     padding: 0 1rem;
+    text-align: center;
 }
 
 #todo-list-display {
@@ -160,7 +168,7 @@ body {
     flex-direction: column;
 }
 
-.todo-item {
+.today-style-todo-item {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -170,7 +178,7 @@ body {
     user-select: text;
 }
 
-.todo-item h5 {
+.today-style-todo-item h5 {
     font-weight: 500;
     user-select: text;
 }
