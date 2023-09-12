@@ -159,6 +159,12 @@ body {
     transition: all ease 0.3s;
 }
 
+#add-to-tasks-form i:hover {
+    cursor: pointer;
+    color: rgb(0, 184, 0);
+    transform: scale(1.1);
+}
+
 #add-to-tasks-form i:active {
     scale: 0.7;
 }
