@@ -1,6 +1,7 @@
 const addNewTaskForm = document.querySelector('#add-to-tasks-form');
 const newTaskInputField = document.querySelector('#NewTaskInputField');
 const taskDateInputField = document.querySelector('#TaskDateInputField');
+
 const todoListDisplay = document.querySelector("#todo-list-display");
 const tasksCount = document.querySelector("#tasks-count h1");
 
