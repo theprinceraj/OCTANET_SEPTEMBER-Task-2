@@ -1,25 +1,10 @@
+const { formSubmissionHandler } = require('./formSubmissionHandler')
+
 const addNewTaskForm = document.querySelector('#add-to-tasks-form');
 const newTaskInputField = document.querySelector('#NewTaskInputField');
 const taskDateInputField = document.querySelector('#TaskDateInputField');
 const todoListDisplay = document.querySelector("#todo-list-display");
 const tasksCount = document.querySelector("#tasks-count h1");
-
-addNewTaskForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const newTask = newTaskInputField.value;
-    const newTaskDate = taskDateInputField.value;
-
-    const newTaskObj = {
-        id: Math.random() * 1000000,
-        task: newTask,
-        date: newTaskDate
-    };
-
-    saveTodo(newTaskObj)
-
-    newTaskInputField.value = '';
-    taskDateInputField.value = '';
-});
 
 /**
  * Saves a todo task by creating an HTML element and appending it to the todo list display.
