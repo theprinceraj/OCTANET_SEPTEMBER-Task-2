@@ -98,18 +98,6 @@ aside {
     scale: 0.9;
 }
 
-#aside-picture-container {
-    overflow: hidden;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    transform: translateY(-10%);
-}
-
-#aside-picture-container img {
-    height: 30%;
-}
-
 body {
     background-color: white;
     display: flex;
