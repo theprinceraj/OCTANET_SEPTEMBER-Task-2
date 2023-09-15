@@ -11,11 +11,26 @@ addNewTaskForm.addEventListener('submit', (event) => {
     const newTaskDate = taskDateInputField.value;
 
     const newTaskObj = {
-        task: newTask,
-        date: newTaskDate
+        title: newTask,
+        date: newTaskDate,
+        completed: false
     };
 
-    displayTodo(newTaskObj)
+    // Save the entry by a HTTP request to http://localhost:3000/tasks
+    fetch('http://localhost:3000/tasks', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newTaskObj)
+    }).then(response => {
+        if (response.ok) {
+            return response.json();
+        }
+    }).then(data => {
+        console.log(data);
+        displayTodo(data);
+    }).catch(error => { })
 
     newTaskInputField.value = '';
     taskDateInputField.value = '';
@@ -76,23 +91,37 @@ updateTasksCount();
  *
  * @return {void} This function does not return a value.
  */
-const fetchLatestTasksData = () => {
+const fetchLatestTasksData = (filter) => {
     fetch('http://localhost:3000/tasks')
         .then(response => response.json())
         .then(data => {
             data.forEach((task) => {
-                displayTodo(task)
+                switch (filter) {
+                    case "All":
+                        displayTodo(task);
+                        break;
+                    case "Today":
+                        displayTodo(task);
+                        break;
+                    case "Tomorrow":
+                        displayTodo(task);
+                        break;
+                    case "Completed":
+                        displayTodo(task);
+                        break;
+                }
             })
             updateTasksCount();
         });
 }
 fetchLatestTasksData();
 
+const asideHeading = document.querySelector('#main-section-heading h1');
 const viewTypeButtons = document.querySelectorAll('#aside-tasks-days li');
 viewTypeButtons.forEach((button) => {
     button.addEventListener('click', (event) => {
         const target = event.currentTarget;
-        console.log("hello")
+
         // Check if the clicked button is already active
         if (!target.classList.contains('active')) {
             // Remove 'active' class from all buttons
@@ -102,6 +131,11 @@ viewTypeButtons.forEach((button) => {
 
             // Add 'active' class to the clicked button
             target.classList.add('active');
+
+            // Change the main section heading as per view type selection
+            asideHeading.textContent = target.textContent;
+            todoListDisplay.innerHTML = "";
+            fetchLatestTasksData(target.textContent);
         }
     });
 });
