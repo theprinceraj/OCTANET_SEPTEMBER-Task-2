@@ -49,13 +49,12 @@ const displayTodo = (taskObject) => {
         <input type="checkbox" name="${taskObject.id}-todo-checkbox" id="${taskObject.id}-todo-checkbox">
             <div>
                 <p>${taskObject.title}</p>
-                <h5><i class='bx bxs-calendar'></i>${new Date(taskObject.date)}</h5>
+                <h5><i class='bx bxs-calendar'></i>${new Date(taskObject.date).toString().split(' ').splice(0, 4).join(' ')}</h5>
             </div>
         <i class='bx bx-trash'></i>
     `;
 
     document.querySelector('#todo-list-display').appendChild(todo);
-
     updateTasksCount();
 }
 
@@ -94,16 +93,23 @@ const fetchLatestTasksData = (filter) => {
     fetch('http://localhost:3000/tasks')
         .then(response => response.json())
         .then(data => {
+
+            let today = new Date();
+            let tomorrow = new Date(today);
+            tomorrow.setDate(today.getDate() + 1)
+
             data.forEach((task) => {
                 switch (filter) {
                     case "All":
                         displayTodo(task);
                         break;
                     case "Today":
-                        displayTodo(task);
+                        if (today.toString().split(' ').splice(0, 4).join(' ') === new Date(task.date).toString().split(' ').splice(0, 4).join(' '))
+                            displayTodo(task);
                         break;
                     case "Tomorrow":
-                        displayTodo(task);
+                        if (tomorrow.toString().split(' ').splice(0, 4).join(' ') === new Date(task.date).toString().split(' ').splice(0, 4).join(' '))
+                            displayTodo(task);
                         break;
                     case "Completed":
                         displayTodo(task);
