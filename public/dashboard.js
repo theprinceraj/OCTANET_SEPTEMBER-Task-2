@@ -11,12 +11,11 @@ addNewTaskForm.addEventListener('submit', (event) => {
     const newTaskDate = taskDateInputField.value;
 
     const newTaskObj = {
-        id: Math.random() * 1000000,
         task: newTask,
         date: newTaskDate
     };
 
-    saveTodo(newTaskObj)
+    displayTodo(newTaskObj)
 
     newTaskInputField.value = '';
     taskDateInputField.value = '';
@@ -28,13 +27,13 @@ addNewTaskForm.addEventListener('submit', (event) => {
  * @param {Object} taskObject - The task object containing the id, task, and date of the todo task.
  * @return {void} This function does not return a value.
  */
-const saveTodo = (taskObject) => {
+const displayTodo = (taskObject) => {
     const todo = document.createElement('li');
     todo.classList.add('date-style-todo-item');
     todo.innerHTML = `
         <input type="checkbox" name="${taskObject.id}-todo-checkbox" id="${taskObject.id}-todo-checkbox">
             <div>
-                <p>${taskObject.task}</p>
+                <p>${taskObject.title}</p>
                 <h5><i class='bx bxs-calendar'></i>${new Date(taskObject.date)}</h5>
             </div>
         <i class='bx bx-trash'></i>
@@ -45,23 +44,41 @@ const saveTodo = (taskObject) => {
     updateTasksCount();
 }
 
-console.log(todoListDisplay)
+
 // Deletes a todo task from the list of displayed todo task.
 todoListDisplay.addEventListener('click', (event) => {
     const target = event.target;
-    
+
     if (target.tagName === 'I' && target.classList.contains('bx-trash')) {
         const todoItem = target.closest('.date-style-todo-item');
         if (todoItem) {
-            if(confirm("Are you sure that you want to delete this task?"))
-            todoItem.remove();
+            if (confirm("Are you sure that you want to delete this task?"))
+                todoItem.remove();
         }
     }
 
     updateTasksCount();
 });
 
+/**
+ * Updates the tasks count by setting the innerHTML of the tasksCount element to the number of child elements of the todoListDisplay element.
+ *
+ * @param {none} - This function does not take any parameters.
+ * @return {none} - This function does not return any value.
+ */
 const updateTasksCount = () => {
-    tasksCount.innerHTML = todoListDisplay.childElementCount
+    tasksCount.innerHTML = todoListDisplay.childElementCount;
 }
 updateTasksCount();
+
+const fetchLatestTasksData = () => {
+    fetch('http://localhost:3000/tasks')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach((task) => {
+                displayTodo(task)
+            })
+            updateTasksCount();
+        });
+}
+fetchLatestTasksData();
