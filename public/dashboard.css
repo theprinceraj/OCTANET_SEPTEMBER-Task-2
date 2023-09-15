@@ -98,6 +98,11 @@ aside {
     scale: 0.9;
 }
 
+.active {
+    background-color: #838383;
+    color: white;
+}
+
 body {
     background-color: white;
     display: flex;

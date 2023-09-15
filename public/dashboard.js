@@ -71,6 +71,11 @@ const updateTasksCount = () => {
 }
 updateTasksCount();
 
+/**
+ * Fetches the latest tasks data from the server and updates the UI.
+ *
+ * @return {void} This function does not return a value.
+ */
 const fetchLatestTasksData = () => {
     fetch('http://localhost:3000/tasks')
         .then(response => response.json())
@@ -82,3 +87,21 @@ const fetchLatestTasksData = () => {
         });
 }
 fetchLatestTasksData();
+
+const viewTypeButtons = document.querySelectorAll('#aside-tasks-days li');
+viewTypeButtons.forEach((button) => {
+    button.addEventListener('click', (event) => {
+        const target = event.currentTarget;
+        console.log("hello")
+        // Check if the clicked button is already active
+        if (!target.classList.contains('active')) {
+            // Remove 'active' class from all buttons
+            viewTypeButtons.forEach((btn) => {
+                btn.classList.remove('active');
+            });
+
+            // Add 'active' class to the clicked button
+            target.classList.add('active');
+        }
+    });
+});
