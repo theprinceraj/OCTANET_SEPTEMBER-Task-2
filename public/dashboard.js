@@ -30,7 +30,7 @@ addNewTaskForm.addEventListener('submit', (event) => {
  */
 const saveTodo = (taskObject) => {
     const todo = document.createElement('li');
-    todo.classList.add('no-date-style-todo-item');
+    todo.classList.add('date-style-todo-item');
     todo.innerHTML = `
         <input type="checkbox" name="${taskObject.id}-todo-checkbox" id="${taskObject.id}-todo-checkbox">
             <div>
@@ -51,7 +51,7 @@ todoListDisplay.addEventListener('click', (event) => {
     const target = event.target;
     
     if (target.tagName === 'I' && target.classList.contains('bx-trash')) {
-        const todoItem = target.closest('.no-date-style-todo-item');
+        const todoItem = target.closest('.date-style-todo-item');
         if (todoItem) {
             if(confirm("Are you sure that you want to delete this task?"))
             todoItem.remove();

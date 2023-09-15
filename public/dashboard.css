@@ -206,7 +206,7 @@ dialog {
     overflow-x: hidden;
 }
 
-.no-date-style-todo-item {
+.date-style-todo-item {
     width: 100%;
     display: flex;
     align-items: center;
@@ -218,7 +218,7 @@ dialog {
     user-select: text;
 }
 
-.no-date-style-todo-item div {
+.date-style-todo-item div {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
@@ -227,25 +227,25 @@ dialog {
     user-select: text;
 }
 
-.no-date-style-todo-item div p {
+.date-style-todo-item div p {
     transform: translateY(6px);
     font-weight: 500;
 }
 
-.no-date-style-todo-item div h5 {
+.date-style-todo-item div h5 {
     color: gray;
     transform: translateY(15px);
 }
 
-.no-date-style-todo-item>i {
+.date-style-todo-item>i {
     transition: all ease 0.3s;
     font-size: 1.5rem;
 }
 
-.no-date-style-todo-item>i:hover {
+.date-style-todo-item>i:hover {
     color: red;
 }
 
-.no-date-style-todo-item>i:active {
+.date-style-todo-item>i:active {
     scale: 0.8;
 }
