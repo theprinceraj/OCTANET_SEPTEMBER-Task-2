@@ -59,7 +59,6 @@ const displayTodo = (taskObject) => {
     updateTasksCount();
 }
 
-
 // Deletes a todo task from the list of displayed todo task.
 todoListDisplay.addEventListener('click', (event) => {
     const target = event.target;
@@ -114,7 +113,7 @@ const fetchLatestTasksData = (filter) => {
             updateTasksCount();
         });
 }
-fetchLatestTasksData();
+fetchLatestTasksData('All');
 
 const asideHeading = document.querySelector('#main-section-heading h1');
 const viewTypeButtons = document.querySelectorAll('#aside-tasks-days li');
