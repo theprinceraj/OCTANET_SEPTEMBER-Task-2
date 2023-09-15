@@ -61,12 +61,22 @@ const displayTodo = (taskObject) => {
 // Deletes a todo task from the list of displayed todo task.
 todoListDisplay.addEventListener('click', (event) => {
     const target = event.target;
-
     if (target.tagName === 'I' && target.classList.contains('bx-trash')) {
         const todoItem = target.closest('.date-style-todo-item');
+        const taskId = todoItem.querySelector('input').id.split('-')[0];
         if (todoItem) {
-            if (confirm("Are you sure that you want to delete this task?"))
+            if (confirm("Are you sure that you want to delete this task?")) {
                 todoItem.remove();
+
+                // Send a HTTP request to delete that particular task from http://localhost:3000/tasks
+                fetch(`http://localhost:3000/tasks/${taskId}`, {
+                    method: 'DELETE'
+                }).then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                }).catch(error => { })
+            }
         }
     }
 

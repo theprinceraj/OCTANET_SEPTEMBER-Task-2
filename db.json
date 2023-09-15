@@ -1,58 +1,22 @@
 {
   "tasks": [
     {
-      "id": 1,
-      "title": "Task 1",
-      "date": "2023-12-01",
-      "completed": false
+      "title": "Practice dance.",
+      "date": "2023-09-16",
+      "completed": false,
+      "id": 2
     },
     {
-      "id": 2,
-      "title": "Task 2",
-      "date": "2019-02-01",
-      "completed": true
-    },
-    {
-      "title": "wdwdwd212",
-      "date": "22222-02-22",
+      "title": "Study polymerization!",
+      "date": "2023-10-09",
       "completed": false,
       "id": 3
     },
     {
-      "title": "dsdsdd",
-      "date": "1111-11-11",
-      "completed": false,
-      "id": 4
-    },
-    {
-      "title": "sddd",
-      "date": "1111-11-11",
-      "completed": false,
-      "id": 5
-    },
-    {
-      "title": "essdsd",
-      "date": "11111-11-11",
-      "completed": false,
-      "id": 6
-    },
-    {
-      "title": "dsdds",
-      "date": "1111-11-11",
-      "completed": false,
-      "id": 7
-    },
-    {
-      "title": "Do homework.",
-      "date": "2011-11-11",
-      "completed": false,
-      "id": 8
-    },
-    {
-      "title": "Do pushups!",
+      "title": "Singing",
       "date": "2023-09-15",
       "completed": false,
-      "id": 9
+      "id": 4
     }
   ]
 }
