@@ -130,7 +130,8 @@ const fetchLatestTasksData = async (filter) => {
                             displayTodo(task);
                         break;
                     case "Completed":
-                        displayTodo(task);
+                        if (task.completed)
+                            displayTodo(task);
                         break;
                 }
             })
