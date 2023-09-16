@@ -9,7 +9,7 @@
     {
       "title": "Singing",
       "date": "Fri Sep 15 2023",
-      "completed": false,
+      "completed": true,
       "id": 4
     },
     {
@@ -23,6 +23,30 @@
       "date": "Sat Sep 16 2023",
       "completed": false,
       "id": 6
+    },
+    {
+      "title": "Gym",
+      "date": "2023-09-17",
+      "completed": false,
+      "id": 7
+    },
+    {
+      "title": "Attend seminar.",
+      "date": "2023-09-18",
+      "completed": false,
+      "id": 8
+    },
+    {
+      "title": "Practice coding.",
+      "date": "2023-09-19",
+      "completed": false,
+      "id": 9
+    },
+    {
+      "title": "Read books.",
+      "date": "2023-09-20",
+      "completed": false,
+      "id": 10
     }
   ]
 }

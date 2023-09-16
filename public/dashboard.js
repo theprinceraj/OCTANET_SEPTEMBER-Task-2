@@ -133,6 +133,8 @@ const fetchLatestTasksData = async (filter) => {
                         if (task.completed)
                             displayTodo(task);
                         break;
+                    default:
+                        return;
                 }
             })
             updateTasksCount();
