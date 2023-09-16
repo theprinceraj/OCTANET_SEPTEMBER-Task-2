@@ -28,7 +28,6 @@ addNewTaskForm.addEventListener('submit', (event) => {
             return response.json();
         }
     }).then(data => {
-        console.log(data);
         displayTodo(data);
     }).catch(error => { })
 
@@ -49,10 +48,14 @@ const displayTodo = (taskObject) => {
         <input type="checkbox" name="${taskObject.id}-todo-checkbox" id="${taskObject.id}-todo-checkbox">
             <div>
                 <p>${taskObject.title}</p>
-                <h5><i class='bx bxs-calendar'></i>${new Date(taskObject.date).toString().split(' ').splice(0, 4).join(' ')}</h5>
+                <h5><i class='bx bxs-calendar'></i><span>${new Date(taskObject.date).toString().split(' ').splice(0, 4).join(' ')}</span></h5>
             </div>
         <i class='bx bx-trash'></i>
     `;
+    if (taskObject.completed) {
+        todo.classList.add('completed-task');
+        todo.querySelector("input").checked = true
+    }
 
     document.querySelector('#todo-list-display').appendChild(todo);
     updateTasksCount();
@@ -99,8 +102,8 @@ updateTasksCount();
  *
  * @return {void} This function does not return a value.
  */
-const fetchLatestTasksData = (filter) => {
-    fetch('http://localhost:3000/tasks')
+const fetchLatestTasksData = async (filter) => {
+    await fetch('http://localhost:3000/tasks')
         .then(response => response.json())
         .then(data => {
 
@@ -127,6 +130,7 @@ const fetchLatestTasksData = (filter) => {
                 }
             })
             updateTasksCount();
+            addListenerToCheckboxes();
         });
 }
 fetchLatestTasksData('All');
@@ -154,3 +158,33 @@ viewTypeButtons.forEach((button) => {
         }
     });
 });
+
+// Listen for checkbox change events
+const addListenerToCheckboxes = () => {
+    const todoCheckboxes = document.querySelectorAll('.date-style-todo-item input');
+    todoCheckboxes.forEach((checkbox) => {
+        console.log(checkbox)
+        checkbox.addEventListener('change', (event) => {
+            const target = event.currentTarget;
+            const todoItem = target.closest('.date-style-todo-item');
+            const taskId = todoItem.querySelector('input').id.split('-')[0];
+            console.log(taskId)
+            // Fetch the task object from http://localhost:3000/tasks
+            fetch(`http://localhost:3000/tasks/${taskId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    title: todoItem.querySelector('div p').textContent,
+                    date: todoItem.querySelector('div h5 span').textContent,
+                    completed: target.checked
+                })
+            }).then(response => {
+                if (response.ok) {
+                    return response.json();
+                }
+            }).catch(error => { })
+        })
+    });
+}

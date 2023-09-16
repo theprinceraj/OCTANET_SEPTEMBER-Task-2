@@ -254,3 +254,9 @@ dialog {
 .date-style-todo-item>i:active {
     scale: 0.8;
 }
+
+.completed-task p,
+.completed-task h5 i,
+.completed-task h5 span {
+    color: rgb(192, 192, 192);
+}
