@@ -9,7 +9,7 @@
     {
       "title": "Singing",
       "date": "Fri Sep 15 2023",
-      "completed": true,
+      "completed": false,
       "id": 4
     },
     {
@@ -26,7 +26,7 @@
     },
     {
       "title": "Gym",
-      "date": "2023-09-17",
+      "date": "Sun Sep 17 2023",
       "completed": false,
       "id": 7
     },

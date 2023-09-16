@@ -94,15 +94,17 @@ todoListDisplay.addEventListener('click', (event) => {
  */
 const updateTasksCount = () => {
     const todoItems = todoListDisplay.querySelectorAll('#todo-list-display li');
-
     // Use Array.from() to convert the NodeList to an array
     const todoItemsArray = Array.from(todoItems);
-    if (document.querySelector("#main-section-heading h1").textContent === "Completed") {
-        const completeTasks = todoItemsArray.filter((item) => item.classList.contains('completed-task'));
-        mainSectionHeading.innerHTML = completeTasks.length;
+    console.log(todoItems)
+    const mainSectionHeading = document.querySelector('#main-section-heading h1').textContent;
+    if (mainSectionHeading !== "Completed") {
+        const incompleteTasks = todoItemsArray.filter((item) => !item.classList.contains('completed-task'));
+        tasksCount.innerHTML = incompleteTasks.length;
+    } else {
+        const completeTasks = todoItemsArray.filter((item) => item.classList.contains('completed-task')) || [];
+        tasksCount.innerHTML = completeTasks.length;
     }
-    const incompleteTasks = todoItemsArray.filter((item) => !item.classList.contains('completed-task'));
-    tasksCount.innerHTML = incompleteTasks.length;
 }
 updateTasksCount();
 
@@ -141,7 +143,6 @@ const fetchLatestTasksData = async (filter) => {
                         return;
                 }
             })
-            updateTasksCount();
             addListenerToCheckboxes();
         });
 }
@@ -167,6 +168,7 @@ viewTypeButtons.forEach((button) => {
             asideHeading.textContent = target.textContent;
             todoListDisplay.innerHTML = "";
             fetchLatestTasksData(target.textContent);
+            updateTasksCount();
         }
     });
 });
@@ -175,12 +177,10 @@ viewTypeButtons.forEach((button) => {
 const addListenerToCheckboxes = () => {
     const todoCheckboxes = document.querySelectorAll('.date-style-todo-item input');
     todoCheckboxes.forEach((checkbox) => {
-        console.log(checkbox)
         checkbox.addEventListener('change', (event) => {
             const target = event.currentTarget;
             const todoItem = target.closest('.date-style-todo-item');
             const taskId = todoItem.querySelector('input').id.split('-')[0];
-            console.log(taskId)
             // Fetch the task object from http://localhost:3000/tasks
             fetch(`http://localhost:3000/tasks/${taskId}`, {
                 method: 'PUT',
