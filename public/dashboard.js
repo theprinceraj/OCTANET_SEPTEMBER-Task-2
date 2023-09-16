@@ -93,7 +93,12 @@ todoListDisplay.addEventListener('click', (event) => {
  * @return {none} - This function does not return any value.
  */
 const updateTasksCount = () => {
-    tasksCount.innerHTML = todoListDisplay.childElementCount;
+    const todoItems = todoListDisplay.querySelectorAll('#todo-list-display li');
+
+    // Use Array.from() to convert the NodeList to an array
+    const todoItemsArray = Array.from(todoItems);
+    const incompleteTasks = todoItemsArray.filter((item) => !item.classList.contains('completed-task'));
+    tasksCount.innerHTML = incompleteTasks.length;
 }
 updateTasksCount();
 
