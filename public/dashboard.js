@@ -97,6 +97,10 @@ const updateTasksCount = () => {
 
     // Use Array.from() to convert the NodeList to an array
     const todoItemsArray = Array.from(todoItems);
+    if (document.querySelector("#main-section-heading h1").textContent === "Completed") {
+        const completeTasks = todoItemsArray.filter((item) => item.classList.contains('completed-task'));
+        mainSectionHeading.innerHTML = completeTasks.length;
+    }
     const incompleteTasks = todoItemsArray.filter((item) => !item.classList.contains('completed-task'));
     tasksCount.innerHTML = incompleteTasks.length;
 }
