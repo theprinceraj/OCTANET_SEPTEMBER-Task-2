@@ -9,7 +9,7 @@
     {
       "title": "Singing",
       "date": "Fri Sep 15 2023",
-      "completed": true,
+      "completed": false,
       "id": 4
     },
     {
@@ -47,6 +47,78 @@
       "date": "2023-09-20",
       "completed": false,
       "id": 10
+    },
+    {
+      "title": "Go for a jog",
+      "date": "Tue Sep 12 2023",
+      "completed": false,
+      "id": 11
+    },
+    {
+      "title": "Write a blog post",
+      "date": "Thu Sep 14 2023",
+      "completed": false,
+      "id": 12
+    },
+    {
+      "title": "Cook a new recipe",
+      "date": "Sat Sep 23 2023",
+      "completed": false,
+      "id": 13
+    },
+    {
+      "title": "Finish homework",
+      "date": "Mon Sep 18 2023",
+      "completed": false,
+      "id": 14
+    },
+    {
+      "title": "Buy groceries",
+      "date": "Tue Sep 19 2023",
+      "completed": false,
+      "id": 15
+    },
+    {
+      "title": "Call a friend",
+      "date": "Wed Sep 20 2023",
+      "completed": false,
+      "id": 16
+    },
+    {
+      "title": "Plan a trip",
+      "date": "Fri Sep 22 2023",
+      "completed": false,
+      "id": 17
+    },
+    {
+      "title": "Read a chapter",
+      "date": "Sun Sep 24 2023",
+      "completed": false,
+      "id": 18
+    },
+    {
+      "title": "Exercise",
+      "date": "Tue Sep 26 2023",
+      "completed": false,
+      "id": 19
+    },
+    {
+      "title": "Write code",
+      "date": "Thu Sep 28 2023",
+      "completed": false,
+      "id": 20
+    },
+    {
+      "title": "Practice guitar",
+      "date": "Sat Sep 30 2023",
+      "completed": false,
+      "id": 21
+    },
+    {
+      "title": "Watch a movie",
+      "date": "Mon Oct 02 2023",
+      "completed": false,
+      "id": 22
     }
   ]
 }
