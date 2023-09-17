@@ -220,7 +220,6 @@ dialog {
     padding: 0.5rem 2rem;
     padding-left: 0;
     margin: 0.5rem 0;
-    user-select: text;
 }
 
 .date-style-todo-item div {
@@ -229,12 +228,12 @@ dialog {
     flex-direction: column;
     width: 90%;
     font-weight: 500;
-    user-select: text;
 }
 
 .date-style-todo-item div p {
     transform: translateY(6px);
     font-weight: 500;
+    user-select: all;
 }
 
 .date-style-todo-item div h5 {
