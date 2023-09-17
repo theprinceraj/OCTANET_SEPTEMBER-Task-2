@@ -259,6 +259,7 @@ dialog {
 .due-task h5 span {
     color: red;
     text-decoration: line-through;
+    text-decoration-thickness: 2px;
 }
 
 .due-task i {
@@ -269,5 +270,12 @@ dialog {
 .completed-task h5 i,
 .completed-task h5 span {
     text-decoration: line-through;
-    color: rgb(192, 192, 192);
+    text-decoration-thickness: 2px;
+    text-decoration-color: green;
+    color: green;
+    /* color: rgb(192, 192, 192); */
+}
+
+.completed-task i {
+    color: green;
 }
