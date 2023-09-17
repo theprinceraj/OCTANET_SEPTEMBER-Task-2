@@ -4,7 +4,6 @@
 The Todo Web App is a powerful and user-friendly task management tool designed to simplify your daily life. Developed as part of internship, this web application offers a seamless way to organize and keep track of your tasks.
 
 ## Preview
-https://github.com/theprinceraj/OCTANET_SEPTEMBER/assets/116755566/a5f5c24f-94fa-48e2-9c8b-94e7153f4515
 
 ## Key Features
 1. Effortless Task Management: Add and delete tasks with ease.
