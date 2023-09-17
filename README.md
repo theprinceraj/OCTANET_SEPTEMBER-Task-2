@@ -18,7 +18,7 @@ In our fast-paced lives, staying organized is essential. The Todo Web App was cr
 
 ## How to Get Started?
 To view this website locally, follow these steps:
-1. Clone the repository: `git clone https://github.com/theprinceraj/OCTANET_SEPTEMBER`
+1. Clone the repository: `git clone https://github.com/theprinceraj/OCTANET_SEPTEMBER_TASK_2`
 2. Run `npm i` on your terminal to install all necessary dependencies
 3. Install "Live Server" extension in Visual Studio Code from [here](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
 4. Restart Visual Studio Code if needed.
