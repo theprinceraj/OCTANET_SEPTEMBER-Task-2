@@ -4,12 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-
+    <title>Todo List | Dashboard</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <!-- Icons CSS -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="dashboard.css">
+    <!-- Note Editor CDN -->
+    <script src="//cdn.quilljs.com/1.0.0/quill.min.js"></script>
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -33,7 +37,9 @@
         <div id="aside-additional-tools" class="aside-column">
             <h5>ADDITIONAL TOOLS</h5>
             <ul>
-                <li>Calendar</li>
+                <li>
+                    <div id="editor"></div>
+                </li>
             </ul>
         </div>
     </aside>
@@ -66,14 +72,14 @@
 
         <!-- TODO list Begins -->
         <ul id="todo-list-display">
-            <li class="date-style-todo-item due-task">
+            <!-- <li class="date-style-todo-item due-task">
                 <input type="checkbox" name="test-todo-checkbox" id="test-todo-checkbox">
                 <div>
                     <p>This a test ToDo item.</p>
                     <h5><i class='bx bxs-calendar'></i><span>12-09-2023</span></h5>
                 </div>
                 <i class='bx bx-trash' id="test-todo-task-delete-btn"></i>
-            </li>
+            </li> -->
         </ul>
         <!-- TODO list Ends -->
 

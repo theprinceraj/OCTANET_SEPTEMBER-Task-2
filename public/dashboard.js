@@ -56,7 +56,7 @@ const displayTodo = (taskObject) => {
     if (taskObject.completed) {
         todo.classList.add('completed-task');
         todo.querySelector("input").checked = true
-    } else if (new Date(taskObject.date) < new Date() && !taskObject.completed) {
+    } else if (new Date(taskObject.date + 1) < new Date() && !taskObject.completed) {
         todo.classList.add('due-task');
     }
 
@@ -211,3 +211,22 @@ const addListenerToCheckboxes = () => {
         })
     });
 }
+
+fetch('https://api.adviceslip.com/advice')
+    .then(res => res.json())
+    .then(quoteJSON => {
+        const randomQuote = quoteJSON.slip.advice;
+
+        const quill = new Quill('#editor', {
+            theme: 'snow',
+            placeholder: randomQuote, // Use the fetched quote as a placeholder
+            modules: {
+                toolbar: [
+                    ['bold', 'italic', 'underline'],
+                ]
+            }
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching quote:', error);
+    });

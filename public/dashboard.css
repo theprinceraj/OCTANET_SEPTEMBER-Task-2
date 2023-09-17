@@ -98,6 +98,24 @@ aside {
     scale: 0.9;
 }
 
+#aside-additional-tools ul li:hover {
+    cursor: auto;
+    background-color: transparent;
+    color: black;
+}
+
+#aside-additional-tools ul li:active {
+    scale: initial;
+}
+
+#editor {
+    max-width: 170px;
+    width: 170px;
+    max-height: 178px;
+    height: 178px;
+    overflow-y: scroll;
+}
+
 .active {
     background-color: #838383;
     color: white;
