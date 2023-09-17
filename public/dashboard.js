@@ -52,9 +52,16 @@ const displayTodo = (taskObject) => {
             </div>
         <i class='bx bx-trash'></i>
     `;
+
     if (taskObject.completed) {
         todo.classList.add('completed-task');
         todo.querySelector("input").checked = true
+    } else if (new Date(taskObject.date) < new Date() && !taskObject.completed) {
+        todo.classList.add('due-task');
+    }
+
+    if (mainSectionHeading.textContent === "Past") {
+        todo.classList.add('due-task');
     }
 
     document.querySelector('#todo-list-display').appendChild(todo);
@@ -96,7 +103,7 @@ const updateTasksCount = () => {
     const todoItems = todoListDisplay.querySelectorAll('#todo-list-display li');
     // Use Array.from() to convert the NodeList to an array
     const todoItemsArray = Array.from(todoItems);
-    console.log(todoItems)
+
     const mainSectionHeading = document.querySelector('#main-section-heading h1').textContent;
     if (mainSectionHeading !== "Completed") {
         const incompleteTasks = todoItemsArray.filter((item) => !item.classList.contains('completed-task'));
@@ -135,6 +142,10 @@ const fetchLatestTasksData = async (filter) => {
                         if (tomorrow.toString().split(' ').splice(0, 4).join(' ') === new Date(task.date).toString().split(' ').splice(0, 4).join(' '))
                             displayTodo(task);
                         break;
+                    case "Past":
+                        if (new Date(task.date).getDate() < today.getDate())
+                            displayTodo(task);
+                        break;
                     case "Completed":
                         if (task.completed)
                             displayTodo(task);
@@ -148,7 +159,7 @@ const fetchLatestTasksData = async (filter) => {
 }
 fetchLatestTasksData('All');
 
-const asideHeading = document.querySelector('#main-section-heading h1');
+const mainSectionHeading = document.querySelector('#main-section-heading h1');
 const viewTypeButtons = document.querySelectorAll('#aside-tasks-days li');
 viewTypeButtons.forEach((button) => {
     button.addEventListener('click', (event) => {
@@ -165,7 +176,7 @@ viewTypeButtons.forEach((button) => {
             target.classList.add('active');
 
             // Change the main section heading as per view type selection
-            asideHeading.textContent = target.textContent;
+            mainSectionHeading.textContent = target.textContent;
             todoListDisplay.innerHTML = "";
             fetchLatestTasksData(target.textContent);
             updateTasksCount();

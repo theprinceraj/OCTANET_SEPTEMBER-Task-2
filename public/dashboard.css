@@ -255,8 +255,20 @@ dialog {
     scale: 0.8;
 }
 
+.due-task p,
+.due-task h5 i,
+.due-task h5 span {
+    color: red;
+    text-decoration: line-through;
+}
+
+.due-task i {
+    color: red;
+}
+
 .completed-task p,
 .completed-task h5 i,
 .completed-task h5 span {
+    text-decoration: line-through;
     color: rgb(192, 192, 192);
 }
